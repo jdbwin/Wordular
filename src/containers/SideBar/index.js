@@ -17,7 +17,10 @@ class SideBar extends Component {
 
   render() {
     return (
-      <SideBarView toggleSideBar={this.toggleSideBar } isVisible={this.props.isVisible} />
+      <SideBarView
+        toggleSideBar={this.toggleSideBar }
+        isVisible={this.props.isVisible}
+      />
     )
   }
 }

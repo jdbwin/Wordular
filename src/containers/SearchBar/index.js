@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+// add underscore so external package is obvious origin
+import { debounce as _debounce } from 'lodash'
 
 import SearchBarView from '../../views/SearchBar'
-
 
 import {
   searchWordnik
@@ -13,19 +14,18 @@ import {
 class SearchBar extends Component {
 
   static propTypes = {
+    results: PropTypes.array
   }
 
-  search = event => { 
-    this.props.searchWordnik(event.target.value)
-  }
-
-  componentDidUpdate() {
-    console.log(this.props)
-  }
+  // search Wordnik API for word definition
+  search = _debounce(word => this.props.searchWordnik(word), 1000)
 
   render() {
     return (
-      <SearchBarView onKeyUp={this.search} results={this.props.results} />
+      <SearchBarView
+        onKeyUp={event => this.search(event.target.value)}
+        results={this.props.results}
+      />
     )
   }
 }
