@@ -5,7 +5,10 @@ import { connect } from 'react-redux'
 
 import SearchBarView from '../../views/SearchBar'
 
-import { getDefinition } from '../../utils/api/wordnik'
+
+import {
+  searchWordnik
+} from '../../modules/wordnik'
 
 class SearchBar extends Component {
 
@@ -13,20 +16,26 @@ class SearchBar extends Component {
   }
 
   search = event => { 
-    getDefinition(event.target.value)
+    this.props.searchWordnik(event.target.value)
+  }
+
+  componentDidUpdate() {
+    console.log(this.props)
   }
 
   render() {
     return (
-      <SearchBarView onKeyUp={this.search} />
+      <SearchBarView onKeyUp={this.search} results={this.props.results} />
     )
   }
 }
 
-const mapStateToProps = ({ }) => ({
+const mapStateToProps = ({ wordnik }) => ({
+  results: wordnik.results
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  searchWordnik
 }, dispatch)
 
 export default connect(

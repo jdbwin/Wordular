@@ -15,7 +15,8 @@ export default (state = initialSideBarState, action) => {
     case TOGGLE_SIDEBAR:
       return {
         ...state,
-        isVisible: !state.isVisible
+        isVisible: !state.isVisible,
+        isToggling: false
       }
 
     default:
