@@ -1,0 +1,15 @@
+.main {
+  height: 100vh;
+  position: fixed;
+  z-index: 99;
+  background-color: #FFF;
+  border-right: 1px solid #000;
+}
+
+.anchor {
+  position: absolute !important;
+  width: 90%;
+  bottom: 0;
+  margin-left: 0.5em;
+}
+
