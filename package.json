@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "start": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js --mode development"
   },
   "author": "",
   "license": "ISC",
@@ -13,11 +13,13 @@
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "axios": "^0.18.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-react-css-modules": "^3.4.2",
     "bulma": "^0.7.2",
     "connected-react-router": "4.5.0",
     "css-loader": "^1.0.1",
+    "dotenv-webpack": "^1.5.7",
     "node-sass": "^4.9.4",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",

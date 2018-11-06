@@ -1,12 +1,12 @@
 import React from 'react'
 
-import SearchbarView from '../../Searchbar'
+import SearchBar from '../../../containers/SearchBar'
 import Hero from '../Hero'
 
 const Home = () => (
   <div className="column is-full">
     <Hero />
-    <SearchbarView />
+    <SearchBar />
   </div>
 )
 

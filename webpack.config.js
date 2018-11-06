@@ -1,3 +1,9 @@
+const webpack = require('webpack')
+
+const { resolve } = require('path')
+
+const Dotenv = require('dotenv-webpack')
+
 module.exports = {
   entry: './src/index.js',
   module: {
@@ -34,5 +40,8 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist'
-  }
+  },
+  plugins: [
+    new Dotenv()
+  ]
 };
