@@ -1,9 +1,14 @@
 const initialSideBarState = {
-  isVisible: true,
+  isVisible: sessionStorage.getItem('isSidebarVisible') ? JSON.parse(sessionStorage.getItem('isSidebarVisible')) : true,
   isToggling: false
 }
 
 export default (state = initialSideBarState, action) => {
+
+  if (action.type === TOGGLE_SIDEBAR) {
+    sessionStorage.setItem('isSidebarVisible', !state.isVisible)
+  }
+
   switch (action.type) {
 
     case TOGGLE_SIDEBAR_REQUESTED:
@@ -23,6 +28,7 @@ export default (state = initialSideBarState, action) => {
       return state
 
   }
+
 }
 
 // SIDEBAR
@@ -38,5 +44,7 @@ export const toggleSidebar = () => {
     dispatch({
       type: TOGGLE_SIDEBAR
     })
+
   }
 }
+
