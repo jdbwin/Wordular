@@ -7,9 +7,11 @@ import "./sidebar.css"
 
 const SideBar = ({ toggleSideBar, isVisible }) => (
   <span>
-    <button onClick={toggleSideBar} className={isVisible ? "is-hidden" : ""}>Show Menu</button>
-    <div className={"column is-one-fifth " +  (isVisible ? "" : "is-invisible")} styleName="main">
-      <button onClick={toggleSideBar}>Hide Menu</button>
+
+    <button onClick={toggleSideBar} className={`button ${isVisible ? "is-hidden" : ""}`} styleName="toggle-button">Show Menu</button>
+
+    <div className={"column is-one-fifth " +  (isVisible ? "" : "is-hidden")} styleName="main">
+      <button className='button' onClick={toggleSideBar}>Hide Menu</button>
       <nav>
         <Link className='is-paddingless' to='/'><h1 className='is-size-1 has-text-centered'>Wordular</h1></Link>
         <ul className="menu-list">
@@ -20,6 +22,7 @@ const SideBar = ({ toggleSideBar, isVisible }) => (
       </nav>
       <Link className='button is-medium' styleName='anchor' to='/about-us'>Settings</Link>
     </div>
+
   </span>
 )
 

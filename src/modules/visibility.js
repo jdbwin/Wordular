@@ -38,5 +38,7 @@ export const toggleSidebar = () => {
     dispatch({
       type: TOGGLE_SIDEBAR
     })
+
+    sessionStorage.setItem('sidebarVisibility', )
   }
 }

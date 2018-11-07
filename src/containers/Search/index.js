@@ -5,13 +5,13 @@ import { connect } from 'react-redux'
 // add underscore so external package is obvious origin
 import { debounce as _debounce } from 'lodash'
 
-import SearchBarView from '../../views/SearchBar'
+import SearchView from '../../views/Search'
 
 import {
   searchWordnik
 } from '../../modules/wordnik'
 
-class SearchBar extends Component {
+class Search extends Component {
 
   static propTypes = {
     results: PropTypes.array
@@ -22,7 +22,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <SearchBarView
+      <SearchView
         onKeyUp={event => this.search(event.target.value)}
         results={this.props.results}
       />
@@ -41,5 +41,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchBar)
+)(Search)
 
