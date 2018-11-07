@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 // add underscore so external package is obvious origin
 import { debounce as _debounce } from 'lodash'
 
-import SearchView from '../../views/Search'
+import SearchView from '../../components/Search'
 
 import {
   getDefinitions,

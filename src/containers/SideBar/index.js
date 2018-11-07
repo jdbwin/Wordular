@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import SideBarView from '../../views/SideBar'
+import SideBarView from '../../components/SideBar'
 
 import { toggleSidebar } from '../../modules/visibility'
 

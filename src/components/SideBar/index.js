@@ -20,7 +20,7 @@ const SideBar = ({ toggleSideBar, isVisible }) => (
           <ListButton text="Types" />
         </ul>
       </nav>
-      <Link className='button is-medium' styleName='anchor' to='/about-us'>Settings</Link>
+      <Link className='button is-medium' styleName='anchor' to='/about'>Settings</Link>
     </div>
 
   </span>
