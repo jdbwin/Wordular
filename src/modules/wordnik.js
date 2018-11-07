@@ -1,8 +1,9 @@
-import { getDefinition } from '../utils/api/wordnik'
+import * as wordnik from '../utils/api/wordnik'
 
 const initialState = {
   results: [],
-  isSearching: false
+  isSearching: false,
+  randomWord: {}
 }
 
 export default (state = initialState, action) => {
@@ -21,6 +22,26 @@ export default (state = initialState, action) => {
         results: action.results.data
       }
 
+     case RANDOM_WORD_COMPLETED:
+      return {
+        ...state,
+        isSearching: false,
+        randomWord: action.randomWord.data
+      }
+
+    case CLEAR_RESULTS_REQUESTED:
+      return {
+        ...state,
+        isClearingResults: true
+      }
+
+    case CLEAR_RESULTS_COMPLETED:
+      return {
+        ...state,
+        results: initialState.results,
+        isClearingResults: false
+      }
+
     default:
       return state
 
@@ -28,12 +49,19 @@ export default (state = initialState, action) => {
 }
 
 const SEARCH_REQUESTED = 'wordnik/SEARCH_REQUESTED'
+
 const SEARCH_COMPLETED = 'wordnik/SEARCH_COMPLETED'
 
-export const searchWordnik = word => async dispatch => {
+const RANDOM_WORD_COMPLETED = 'wordnik/RANDOM_WORD_COMPLETED'
+
+const CLEAR_RESULTS_REQUESTED = 'wordnik/CLEAR_RESULTS_REQUESTED'
+
+const CLEAR_RESULTS_COMPLETED = 'wordnik/CLEAR_RESULTS_COMPLETED'
+
+export const getDefinitions = word => async dispatch => {
   dispatch({ type: SEARCH_REQUESTED})
 
-  const results = await getDefinition(word)
+  const results = await wordnik.getDefinitions(word)
 
   dispatch({
     type: SEARCH_COMPLETED,
@@ -41,3 +69,25 @@ export const searchWordnik = word => async dispatch => {
   })
 }
 
+export const getRandomWord = () => async dispatch => {
+  dispatch({ type: SEARCH_REQUESTED })
+
+  const randomWord = await wordnik.getRandomWord()
+
+  dispatch({
+    type: RANDOM_WORD_COMPLETED,
+    randomWord
+  })
+}
+
+export const clearResults = () => {
+  return dispatch => {
+    dispatch({
+      type: CLEAR_RESULTS_REQUESTED
+    })
+
+    dispatch({
+      type: CLEAR_RESULTS_COMPLETED
+    })
+  }
+}
