@@ -1,11 +1,12 @@
 import React from 'react'
 
 import Button from '../../components/buttons/Button'
+import Results from '../../components/Results'
 
 import './styles.css'
 
 const Search = ({ searchTerm, search, results, getRandomWord, onChange }) => (
-  <div className='is-centered' styleName='main'>
+  <div className='is-centered m-t-xl' styleName='main'>
 
     <div className="control">
       <input
@@ -23,13 +24,7 @@ const Search = ({ searchTerm, search, results, getRandomWord, onChange }) => (
       <Button text='Random' onClick={getRandomWord} color='is-light' />
     </center>
 
-    <div>
-      {results && results.map((result, index) => {
-        return (
-          <p key={index}>{result.text}</p>
-        )
-      })}
-    </div>
+    {results && <Results results={results} word={searchTerm} />}
 
   </div>
 )

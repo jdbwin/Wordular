@@ -24,7 +24,7 @@ class Search extends Component {
   }
 
   // search Wordnik API for word definition
-  search = _debounce(() => this.props.getDefinitions(this.state.searchTerm), 1000)
+  search = _debounce(() => this.props.getDefinitions(this.state.searchTerm), 500)
 
   handleSearch = () => {
     if (!this.state.searchTerm) {
@@ -35,7 +35,28 @@ class Search extends Component {
     this.search()
   }
 
-  getRandomWord = () => this.props.getRandomWord()
+  getRandomWord = () => {
+    this.props.getRandomWord()
+
+    // user must explicity 'search' to get results from random word
+    this.props.clearResults()
+  }
+
+  formatResults = results => {
+    if (!results.length) {
+      return
+    }
+
+    // organise definitions into part of speech
+    return results.reduce((acc, curr) => {
+      const partOfSpeech = curr.partOfSpeech ? curr.partOfSpeech : ''
+
+      acc[partOfSpeech]
+        ? acc[partOfSpeech].push(curr)
+        : acc[partOfSpeech] = [curr]
+      return acc
+    }, {})
+  }
 
   // handle automatically setting searchTerm when random word is returned from wordnik
   componentDidUpdate(prevProps) {
@@ -55,7 +76,7 @@ class Search extends Component {
       <SearchView
         search={() => this.handleSearch()}
         getRandomWord={this.getRandomWord}
-        results={this.props.results}
+        results={this.formatResults(this.props.results)}
         onChange={event => this.onInputChange(event.target.value)}
         searchTerm={this.state.searchTerm}
       />

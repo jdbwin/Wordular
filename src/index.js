@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'connected-react-router'
 import store, { history } from './store'
 import App from './containers/app'
 
-import './index.scss'
+import './styles/index.scss'
 
 const target = document.querySelector('#app')
 
