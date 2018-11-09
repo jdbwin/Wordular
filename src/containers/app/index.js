@@ -3,12 +3,14 @@ import { Route } from 'react-router-dom'
 
 import Home from '../Home'
 import About from '../About'
-import SideBar from '../../containers/SideBar'
+import MyWords from '../MyWords'
+import SideBar from '../SideBar'
 
 const App = () => (
-  <div className='columns'>
+  <div>
     <SideBar />
     <Route exact path="/" component={Home} />
+    <Route exact path="/my-words" component={MyWords} />
     <Route exact path="/about" component={About} />
   </div>
 )
