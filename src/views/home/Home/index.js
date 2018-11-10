@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Search from '../../../containers/Search'
+import Search from '../../../containers/Words/Search'
 import Hero from '../Hero'
 
 const Home = () => (

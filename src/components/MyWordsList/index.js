@@ -4,7 +4,7 @@ import Results from '../../components/Results'
 
 import './styles.css'
 
-const MyWordsList = ({ myWords, toggleVisibility, visibleItem, getDefinition, results }) => (
+const MyWordsList = ({ myWords, results, visibleItem, showWord }) => (
   <div className="column is-half">
     {myWords && myWords.map((word, index) => {
       return (
@@ -13,7 +13,7 @@ const MyWordsList = ({ myWords, toggleVisibility, visibleItem, getDefinition, re
             <p className="card-header-title">
               {word}
             </p>
-            <a href="#" className="card-header-icon" aria-label="more options" onClick={() => {getDefinition(word); toggleVisibility(index)}}>
+            <a href="#" className="card-header-icon" aria-label="more options" onClick={() => { showWord(word, index) }}>
               <span className="icon">
                 <i className="fas fa-angle-down" aria-hidden="true"></i>
               </span>

@@ -5,12 +5,12 @@ import Results from '../../components/Results'
 
 import './styles.css'
 
-const Search = ({ searchTerm, search, results, getRandomWord, onChange }) => (
+const Search = ({ searchTerm, search, results, getRandomWord, onChange, keyDownSearch }) => (
   <div className='is-centered m-t-xl' styleName='main'>
 
     <div className="control">
       <input
-        onKeyUp={search}
+        onKeyDown={keyDownSearch}
         value={searchTerm}
         onChange={onChange}
         className="input is-medium"
