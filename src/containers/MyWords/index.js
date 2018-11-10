@@ -14,6 +14,26 @@ class MyWords extends Component {
   static propTypes = {
   }
 
+  state = {
+    visibleItems: []
+  }
+
+  toggleVisibility = selectedItem => {
+    const itemIndex = this.state.visibleItems.indexOf(selectedItem)
+    let visibleItems
+
+    if (itemIndex >= 0) {
+      this.state.visibleItems.splice(itemIndex, 1)
+
+      visibleItems = this.state.visibleItems
+    } else {
+      visibleItems = [ ...this.state.visibleItems, selectedItem ]
+    }
+
+    this.setState({ visibleItems })
+  }
+
+
   componentDidMount() {
     this.props.getMyWords()
   }
@@ -22,6 +42,8 @@ class MyWords extends Component {
     return (
       <MyWordsView
         myWords={this.props.myWords}
+        toggleVisibility={this.toggleVisibility}
+        visibleItems={this.state.visibleItems}
       />
     )
   }

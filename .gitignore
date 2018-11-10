@@ -23,5 +23,5 @@ chrome-user-data
 *.swp
 *.swo
 .env
-dist/
+dist/bundle.js
 yarn.lock
