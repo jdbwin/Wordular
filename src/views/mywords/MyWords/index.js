@@ -2,14 +2,16 @@ import React from 'react'
 
 import MyWordsList from '../../../components/MyWordsList'
 
-const MyWords = ({ myWords, toggleVisibility, visibleItems }) => (
+const MyWords = ({ myWords, toggleVisibility, visibleItem, getDefinition, results }) => (
   <div className="container">
     <div className="columns is-centered">
       {myWords.length &&
           <MyWordsList
             myWords={myWords}
             toggleVisibility={toggleVisibility}
-            visibleItems={visibleItems}
+            visibleItem={visibleItem}
+            getDefinition={getDefinition}
+            results={results}
           />
       }
     </div>
@@ -17,5 +19,4 @@ const MyWords = ({ myWords, toggleVisibility, visibleItems }) => (
 )
 
 export default MyWords
-
 

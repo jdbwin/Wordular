@@ -9,28 +9,46 @@ import {
   getMyWords
 } from '../../modules/myWords'
 
+import {
+  getDefinitions
+} from '../../modules/wordnik'
+
 class MyWords extends Component {
 
   static propTypes = {
   }
 
   state = {
-    visibleItems: []
+    visibleItem: null
   }
 
-  toggleVisibility = selectedItem => {
-    const itemIndex = this.state.visibleItems.indexOf(selectedItem)
-    let visibleItems
+  toggleVisibility = item => {
+    const { visibleItem } = this.state
 
-    if (itemIndex >= 0) {
-      this.state.visibleItems.splice(itemIndex, 1)
+    console.log('sup')
 
-      visibleItems = this.state.visibleItems
-    } else {
-      visibleItems = [ ...this.state.visibleItems, selectedItem ]
+    this.setState({ visibleItem: item })
+  }
+
+  getDefinition = word => {
+    this.props.getDefinitions(word)
+
+  }
+
+  formatResults = results => {
+    if (!results.length) {
+      return
     }
 
-    this.setState({ visibleItems })
+    // organise definitions into part of speech
+    return results.reduce((acc, curr) => {
+      const partOfSpeech = curr.partOfSpeech ? curr.partOfSpeech : ''
+
+      acc[partOfSpeech]
+        ? acc[partOfSpeech].push(curr)
+        : acc[partOfSpeech] = [curr]
+      return acc
+    }, {})
   }
 
 
@@ -39,22 +57,27 @@ class MyWords extends Component {
   }
 
   render() {
+    console.log(this.state.visibleItem)
     return (
       <MyWordsView
         myWords={this.props.myWords}
         toggleVisibility={this.toggleVisibility}
-        visibleItems={this.state.visibleItems}
+        visibleItem={this.state.visibleItem}
+        getDefinition={this.getDefinition}
+        results={this.formatResults(this.props.results)}
       />
     )
   }
 }
 
-const mapStateToProps = ({ myWords }) => ({
-  myWords: myWords.myWords
+const mapStateToProps = ({ myWords, wordnik }) => ({
+  myWords: myWords.myWords,
+  results: wordnik.results
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getMyWords
+  getMyWords,
+  getDefinitions
 }, dispatch)
 
 export default connect(
