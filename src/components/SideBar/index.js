@@ -16,8 +16,8 @@ const SideBar = ({ toggleSideBar, isVisible }) => (
         <Link className='is-paddingless' to='/'><h1 className='is-size-1 has-text-centered'>Wordular</h1></Link>
         <ul className="menu-list">
           <Link className="button is-medium m-b-md" to="/my-words">My Words</Link>
+          <Link className="button is-medium m-b-md" to="/vocabulary-builder">Vocabulary Builder</Link>
           <Link className="button is-medium m-b-md" to="/my-words">Trending</Link>
-          <Link className="button is-medium m-b-md" to="/my-words">Types</Link>
         </ul>
       </nav>
       <Link className='button is-medium' styleName='anchor' to='/about'>Settings</Link>
