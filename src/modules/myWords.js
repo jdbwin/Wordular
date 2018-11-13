@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isRequesting: false,
-        myWords: action.myWords.data
+        myWords: action.myWords.words
       }
 
     default:

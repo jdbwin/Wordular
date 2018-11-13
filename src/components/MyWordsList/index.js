@@ -11,9 +11,9 @@ const MyWordsList = ({ myWords, results, visibleItem, showWord }) => (
         <div className="card" key={index}>
           <header className="card-header">
             <p className="card-header-title">
-              {word}
+              {word.word}
             </p>
-            <a href="#" className="card-header-icon" aria-label="more options" onClick={() => { showWord(word, index) }}>
+            <a href="#" className="card-header-icon" aria-label="more options" onClick={() => { showWord(word.word, index) }}>
               <span className="icon">
                 <i className="fas fa-angle-down" aria-hidden="true"></i>
               </span>
@@ -22,7 +22,7 @@ const MyWordsList = ({ myWords, results, visibleItem, showWord }) => (
           <div className={`${visibleItem === index ? '' : 'is-hidden'}`}>
             <div className="card-content">
               <div className="content">
-                {results && <Results results={results} word={word} />}
+                {results && <Results results={results} word={word.word} />}
               </div>
             </div>
             <footer className="card-footer">

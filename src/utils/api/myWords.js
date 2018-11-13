@@ -1,4 +1,5 @@
-import { WORDS } from '../words/words'
+import axios from 'axios'
 
-// in lieu of functioning API
-export const getMyWords = () => WORDS
+const API = axios.create({ baseURL: process.env.DB_URL })
+
+export const getMyWords = () => API.get('/words').then(res => res.data)
