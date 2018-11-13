@@ -10,3 +10,13 @@
 .word-buttons > button:last-child {
   margin-left: 18px;
 }
+
+.results-container {
+  position: fixed;
+  background-color: #FFF;
+  z-index: 99;
+  width: 34.5%;
+  height: 40%;
+  overflow: auto;
+  border: 2px solid #000;
+}

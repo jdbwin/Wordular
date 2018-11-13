@@ -6,8 +6,6 @@ const Results = ({ word, results }) => (
 
   <div className="content is-small">
 
-    <h1>{word.toUpperCase()}</h1>
-
     {results && Object.keys(results).map((result, index) => {
       return (
         <div key={index}>

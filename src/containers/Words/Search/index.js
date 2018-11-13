@@ -11,6 +11,10 @@ import {
   getRandomWord
 } from '../../../modules/wordnik'
 
+import {
+  saveWord
+} from '../../../modules/myWords'
+
 @Words
 class Search extends Component {
 
@@ -31,6 +35,14 @@ class Search extends Component {
     this.props.clearResults()
   }
 
+  saveWord = () => {
+    const partsOfSpeech = Array.from(
+      new Set(this.props.results.map(result => result.partOfSpeech))
+    ).join(', ')
+
+    this.props.saveWord({ word: this.props.searchTerm, part_of_speech: partsOfSpeech })
+  }
+
   // handle automatically setting searchTerm when random word is returned from wordnik
   componentDidUpdate(prevProps) {
     const { randomWord } = this.props
@@ -49,6 +61,7 @@ class Search extends Component {
         results={this.props.formatResults(this.props.results)}
         onChange={event => this.props.setSearchTerm(event.target.value)}
         searchTerm={this.props.searchTerm}
+        saveWord={this.saveWord}
       />
     )
   }
@@ -59,7 +72,8 @@ const mapStateToProps = ({ wordnik }) => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getRandomWord
+  getRandomWord,
+  saveWord
 }, dispatch)
 
 export default connect(
