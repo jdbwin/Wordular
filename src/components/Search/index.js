@@ -6,6 +6,7 @@ import Results from '../../components/Results'
 import './styles.css'
 
 const Search = ({
+  clear,
   getRandomWord,
   keyDownSearch,
   onChange,
@@ -30,10 +31,10 @@ const Search = ({
 
     {results &&
     <div className="m-t-md">
-      <div styleName="results-container" className="p-md">
-        <div className="field is-grouped">
-          <Button text="Save" color="is-primary" onClick={saveWord} />
-          <Button text="Close" color="is-primary" onClick={saveWord} />
+      <div styleName="results-container" className="p-md p-t-none">
+        <div className="field is-grouped is-grouped-right">
+          <Button text="Save" color="is-info" onClick={saveWord} />
+          <Button text="Close" color="is-danger" onClick={clear} />
         </div>
         <Results
           results={results}
@@ -43,7 +44,7 @@ const Search = ({
     </div>
     }
 
-    <div className="field is-grouped" styleName="search-buttons">
+    <div className="field is-grouped is-grouped-centered m-t-md">
       <Button text="Search" onClick={search} color="is-light" />
       <Button text="Random" onClick={getRandomWord} color="is-light" />
     </div>

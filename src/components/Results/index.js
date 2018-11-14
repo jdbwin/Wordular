@@ -13,16 +13,13 @@ const Results = ({ word, results }) => (
       {result && <h3 styleName="part-of-speech">{result}</h3>}
 
       <ol type="I">
-        {results[result].map((result, index) => {
-        return (
+        {results[result].map((result, index) => (
         <li styleName="definition" key={index}>{result.text}</li>
-        )
-        })}
+        ))}
       </ol>
 
     </div>
-
-    )})}
+    ))}
 
   </div>
 )

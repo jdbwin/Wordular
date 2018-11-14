@@ -41,6 +41,7 @@ class Search extends Component {
     ).join(', ')
 
     this.props.saveWord({ word: this.props.searchTerm, part_of_speech: partsOfSpeech })
+    this.clear()
   }
 
   // handle automatically setting searchTerm when random word is returned from wordnik
@@ -50,6 +51,11 @@ class Search extends Component {
     if (prevProps.randomWord != randomWord) {
       this.props.setSearchTerm(randomWord.word)
     }
+  }
+
+  clear = () => {
+    this.props.clearResults()
+    this.props.setSearchTerm("")
   }
 
   render() {
@@ -62,6 +68,7 @@ class Search extends Component {
         onChange={event => this.props.setSearchTerm(event.target.value)}
         searchTerm={this.props.searchTerm}
         saveWord={this.saveWord}
+        clear={this.clear}
       />
       )
   }
