@@ -17,7 +17,7 @@ class VocabularyBuilder extends Component {
     return (
       <VocabularyBuilderView
       />
-    )
+      )
   }
 }
 
@@ -31,5 +31,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(VocabularyBuilder)
-
 

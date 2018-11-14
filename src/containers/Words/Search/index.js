@@ -63,7 +63,7 @@ class Search extends Component {
         searchTerm={this.props.searchTerm}
         saveWord={this.saveWord}
       />
-    )
+      )
   }
 }
 

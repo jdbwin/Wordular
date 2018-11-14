@@ -58,6 +58,11 @@ const Words = WordsComponent => {
       this.searchDebounced()
     }
 
+    componentWillUnmount() {
+      // clear results before transitioning
+      this.props.clearResults()
+    }
+
     render () {
       return (
         <WordsComponent
@@ -69,7 +74,7 @@ const Words = WordsComponent => {
           keyDownSearch={this.keyDownSearch}
           search={this.search}
         />
-      )
+        )
     }
   }
 
@@ -86,3 +91,4 @@ const Words = WordsComponent => {
 }
 
 export default Words
+

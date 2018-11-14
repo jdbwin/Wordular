@@ -50,7 +50,7 @@ class MyWords extends Component {
         results={this.props.formatResults(this.props.results)}
         showWord={this.showWord}
       />
-    )
+      )
   }
 }
 
@@ -66,3 +66,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MyWords)
+
