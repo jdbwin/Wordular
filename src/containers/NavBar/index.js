@@ -3,17 +3,20 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import {
+  toggleModal
+} from '../../modules/visibility'
+
 import NavBarView from '../../components/NavBar'
 
 class NavBar extends Component {
 
-  static propTypes = {
-    isVisible: PropTypes.bool.isRequired
-  }
+  popModal = modalType => this.props.toggleModal(modalType)
 
   render() {
     return (
       <NavBarView
+        popModal={modalType => this.popModal(modalType)}
       />
       )
   }
@@ -23,6 +26,7 @@ const mapStateToProps = ({ }) => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  toggleModal
 }, dispatch)
 
 export default connect(

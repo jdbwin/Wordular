@@ -1,26 +1,24 @@
-const initialSideBarState = {
-  isVisible: sessionStorage.getItem('isSidebarVisible') ? JSON.parse(sessionStorage.getItem('isSidebarVisible')) : true,
-  isToggling: false
+const initialModalState = {
+  isModalVisible: false,
+  isToggling: false,
+  modalType: null
 }
 
-export default (state = initialSideBarState, action) => {
-
-  if (action.type === TOGGLE_SIDEBAR) {
-    sessionStorage.setItem('isSidebarVisible', !state.isVisible)
-  }
+export default (state = initialModalState, action) => {
 
   switch (action.type) {
 
-    case TOGGLE_SIDEBAR_REQUESTED:
+    case TOGGLE_MODAL_REQUESTED:
       return {
         ...state,
         isToggling: true
       }
 
-    case TOGGLE_SIDEBAR:
+    case TOGGLE_MODAL:
       return {
         ...state,
-        isVisible: !state.isVisible,
+        isModalVisible: !state.isModalVisible,
+        modalType: action.modalType || initialModalState.modalType,
         isToggling: false
       }
 
@@ -31,18 +29,19 @@ export default (state = initialSideBarState, action) => {
 
 }
 
-// SIDEBAR
-const TOGGLE_SIDEBAR_REQUESTED = 'visibility/TOGGLE_SIDEBAR_REQUESTED'
-const TOGGLE_SIDEBAR = 'visibility/TOGGLE_SIDEBAR'
+// MODAL
+const TOGGLE_MODAL_REQUESTED = 'visibility/TOGGLE_MODAL_REQUESTED'
+const TOGGLE_MODAL = 'visibility/TOGGLE_MODAL'
 
-export const toggleSidebar = () => {
+export const toggleModal = modalType => {
   return dispatch => {
     dispatch({
-      type: TOGGLE_SIDEBAR_REQUESTED
+      type: TOGGLE_MODAL_REQUESTED
     })
 
     dispatch({
-      type: TOGGLE_SIDEBAR
+      type: TOGGLE_MODAL,
+      modalType
     })
 
   }

@@ -6,9 +6,11 @@ import About from '../About'
 import MyWords from '../Words/MyWords'
 import VocabularyBuilder from '../Words/VocabularyBuilder'
 import NavBar from '../NavBar'
+import Modal from '../Modal'
 
 const App = () => (
   <div>
+    <Modal />
     <NavBar />
     <Route exact path="/" component={Home} />
     <Route exact path="/my-words" component={MyWords} />

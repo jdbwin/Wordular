@@ -1,11 +1,13 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
 
-import ListButton from "../../components/buttons/ListButton"
+import Button from "../../components/buttons/Button"
+
+import MODAL_TYPES from '../../utils/constants/MODAL'
 
 import "./navbar.css"
 
-const NavBar = () => (
+const NavBar = ({ popModal  }) => (
   <nav className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
       <NavLink className=" navbar-item" to="/">
@@ -22,9 +24,9 @@ const NavBar = () => (
         <NavLink className="navbar-item is-tab" activeClassName="is-active" to="/about">Trending</NavLink>
 
         <div className="navbar-item has-dropdown is-hoverable">
-          <a className="navbar-link">
+          <span className="navbar-link">
             More
-          </a>
+          </span>
 
           <div className="navbar-dropdown">
             <NavLink className="navbar-item is-tab" activeClassName="is-active" to="/about">Settings</NavLink>
@@ -38,12 +40,17 @@ const NavBar = () => (
     <div className="navbar-end">
       <div className="navbar-item">
         <div className="buttons">
-          <a className="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a className="button is-light">
-            Log in
-          </a>
+          <Button
+            text="Sign up"
+            color="is-primary"
+            modifier="m-r-md"
+            onClick={() => popModal(MODAL_TYPES.SIGN_UP)}
+          />
+          <Button
+            text="Log in"
+            color="is-light"
+            onClick={() => popModal(MODAL_TYPES.LOG_IN)}
+          />
         </div>
       </div>
     </div>
