@@ -3,37 +3,29 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import SideBarView from '../../components/SideBar'
+import NavBarView from '../../components/NavBar'
 
-import { toggleSidebar } from '../../modules/visibility'
-
-class SideBar extends Component {
+class NavBar extends Component {
 
   static propTypes = {
     isVisible: PropTypes.bool.isRequired
   }
 
-  toggleSideBar = () => { this.props.toggleSidebar() }
-
   render() {
     return (
-      <SideBarView
-        toggleSideBar={this.toggleSideBar}
-        isVisible={this.props.isVisible}
+      <NavBarView
       />
       )
   }
 }
 
-const mapStateToProps = ({ visibility }) => ({
-  isVisible: visibility.isVisible
+const mapStateToProps = ({ }) => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  toggleSidebar
 }, dispatch)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SideBar)
+)(NavBar)

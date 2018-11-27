@@ -5,11 +5,11 @@ import Home from '../Home'
 import About from '../About'
 import MyWords from '../Words/MyWords'
 import VocabularyBuilder from '../Words/VocabularyBuilder'
-import SideBar from '../SideBar'
+import NavBar from '../NavBar'
 
 const App = () => (
   <div>
-    <SideBar />
+    <NavBar />
     <Route exact path="/" component={Home} />
     <Route exact path="/my-words" component={MyWords} />
     <Route exact path="/vocabulary-builder" component={VocabularyBuilder} />
