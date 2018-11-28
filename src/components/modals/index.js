@@ -7,11 +7,16 @@ import SignUp from './SignUp'
 
 import TYPES from '../../utils/constants/MODAL'
 
-const Modal = ({ isVisible, modalType, toggleModal }) => (
+const Modal = ({
+  createUser,
+  isVisible,
+  modalType,
+  toggleModal
+}) => (
   <div className={`modal ${isVisible && 'is-active'}`}>
     <div className="modal-background"></div>
     {modalType === TYPES.LOG_IN && <LogIn />}
-    {modalType === TYPES.SIGN_UP && <SignUp />}
+    {modalType === TYPES.SIGN_UP && <SignUp createUser={createUser} />}
     <button onClick={toggleModal} className="modal-close is-large" aria-label="close"></button>
   </div>
 )

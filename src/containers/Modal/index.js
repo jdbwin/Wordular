@@ -7,6 +7,10 @@ import {
   toggleModal
 } from '../../modules/visibility'
 
+import {
+  createUser
+} from '../../modules/users'
+
 import ModalView from '../../components/modals'
 
 class Modal extends Component {
@@ -21,6 +25,7 @@ class Modal extends Component {
       <ModalView
         isVisible={this.props.isVisible}
         modalType={this.props.modalType}
+        createUser={this.props.createUser}
         toggleModal={() => this.props.toggleModal()}
       />
       )

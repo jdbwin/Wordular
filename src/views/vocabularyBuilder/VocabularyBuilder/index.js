@@ -10,4 +10,3 @@ const VocabularyBuilder = () => (
 
 export default VocabularyBuilder
 
-
