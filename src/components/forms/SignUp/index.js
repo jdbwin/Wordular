@@ -1,7 +1,8 @@
 import React from 'react'
-import { Field } from 'redux-form'
+import { reduxForm, Field } from 'redux-form'
 
-import RenderField from '../fields/Field'
+import Input from '../fields/Input'
+import Button from '../../buttons/Button'
 
 const SignUp = ({ handleSubmit, pristine, reset, submitting }) => (
   <form onSubmit={handleSubmit}>
@@ -10,28 +11,28 @@ const SignUp = ({ handleSubmit, pristine, reset, submitting }) => (
       type="text"
       placeholder="Your name"
       label="Name"
-      component={RenderField}
+      component={Input}
     />
     <Field
       name="email"
       type="email"
       placeholder="you@example.com"
       label="Email"
-      component={RenderField}
+      component={Input}
     />
     <Field
       name="password"
       type="password"
       placeholder="xxxxxx"
       label="Password"
-      component={RenderField}
+      component={Input}
     />
     <Field
       name="passwordConfirmation"
       type="password"
       placeholder="xxxxxx"
       label="Password confirmation"
-      component={RenderField}
+      component={Input}
     />
 
     <div className="field">
@@ -42,12 +43,18 @@ const SignUp = ({ handleSubmit, pristine, reset, submitting }) => (
         </label>
       </div>
     </div>
-     <div>
-        <button type="submit" disabled={submitting}>Submit</button>
-      </div>
+
+    <Button
+      text="Sign up"
+      type="submit"
+      color="is-success"
+      modifier="is-fullwidth"
+      disabled={submitting}
+    />
   </form>
 )
 
-export default SignUp
-
+export default reduxForm({
+  form: 'SignUp'
+})(SignUp)
 

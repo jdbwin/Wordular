@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { reduxForm } from 'redux-form'
 
 import SignUpView from '../../../components/forms/SignUp'
 
@@ -18,12 +17,12 @@ class SignUp extends Component {
   static propTypes = {
   }
 
-  createUser = () => {
+  createUser = values => {
     const {
       email,
       name,
       password
-    } = this.props.signUpForm.values
+    } = values
 
     this.props.createUser({ email, name, password })
   }
@@ -31,7 +30,7 @@ class SignUp extends Component {
   render() {
     return (
       <SignUpView
-        handleSubmit={this.createUser}
+        onSubmit={values => this.createUser(values)}
       />
       )
   }
@@ -45,12 +44,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   createUser
 }, dispatch)
 
-const connected = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SignUp)
-
-export default reduxForm({
-  form: 'SignUp'
-})(connected)
 

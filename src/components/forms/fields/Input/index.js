@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Field = ({
+const Input = ({
   input,
   placeholder,
   label,
@@ -25,6 +25,5 @@ const Field = ({
   </div>
 )
 
-export default Field
-
+export default Input
 

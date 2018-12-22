@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { reduxForm } from 'redux-form'
 
 import LoginView from '../../../components/forms/Login'
 
 import Authentication from '../../Authentication'
+
+import {
+  loginUser
+} from '../../../modules/users'
 
 @Authentication
 class Login extends Component {
@@ -14,26 +17,34 @@ class Login extends Component {
   static propTypes = {
   }
 
+  loginUser = values => {
+    const {
+      email,
+      password
+    } = values
+
+    this.props.loginUser({ email, password })
+  }
+
   render() {
     return (
       <LoginView
+        onSubmit={values => this.loginUser(values)}
       />
       )
   }
 }
 
-const mapStateToProps = () => ({
+const mapStateToProps = ({ form }) => ({
+  loginForm: form.Login
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  loginUser
 }, dispatch)
 
-const connected = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Login)
-
-export default reduxForm({
-  form: 'login'
-})(connected)
 
