@@ -8,8 +8,8 @@ import LoginView from '../../../components/forms/Login'
 import Authentication from '../../Authentication'
 
 import {
-  loginUser
-} from '../../../modules/users'
+  login
+} from '../../../modules/auth'
 
 @Authentication
 class Login extends Component {
@@ -17,19 +17,19 @@ class Login extends Component {
   static propTypes = {
   }
 
-  loginUser = values => {
+  login = values => {
     const {
       email,
       password
     } = values
 
-    this.props.loginUser({ email, password })
+    this.props.login({ username: email, password })
   }
 
   render() {
     return (
       <LoginView
-        onSubmit={values => this.loginUser(values)}
+        onSubmit={values => this.login(values)}
       />
       )
   }
@@ -40,7 +40,7 @@ const mapStateToProps = ({ form }) => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  loginUser
+  login
 }, dispatch)
 
 export default connect(

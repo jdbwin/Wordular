@@ -58,16 +58,3 @@ export const createUser = user => async dispatch => {
   })
 }
 
-export const loginUser = credentials => async dispatch => {
-  dispatch({ type: LOGIN_USER_REQUESTED})
-
-  const user = await usersApi.loginUser(credentials)
-
-  console.log(user)
-
-  dispatch({
-    type: LOGIN_USER_COMPLETED,
-    user
-  })
-}
-
