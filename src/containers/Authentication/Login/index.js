@@ -17,13 +17,15 @@ class Login extends Component {
   static propTypes = {
   }
 
-  login = values => {
+  login = async values => {
     const {
       email,
       password
     } = values
 
-    this.props.login({ username: email, password })
+    await this.props.login({ username: email, password })
+
+    this.props.closeModal()
   }
 
   render() {

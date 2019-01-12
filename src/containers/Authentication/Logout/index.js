@@ -3,51 +3,53 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import SignUpView from '../../../components/forms/SignUp'
+import LogOutView from '../../../components/forms/Logout'
 
 import Authentication from '../../Authentication'
 
 import {
-  createUser
-} from '../../../modules/users'
+  logout
+} from '../../../modules/auth'
 
 @Authentication
-class SignUp extends Component {
+class LogOut extends Component {
 
   static propTypes = {
   }
 
-  createUser = async values => {
+  logout = async values => {
     const {
       email,
-      name,
       password
     } = values
 
-    await this.props.createUser({ email, name, password })
+    await this.props.logout()
 
-    this.props.closeModal()
+    // clear state
+    window.location.reload()
   }
 
   render() {
     return (
-      <SignUpView
-        onSubmit={values => this.createUser(values)}
+      <LogOutView
+        accept={this.logout}
+        close={this.props.closeModal}
       />
       )
   }
 }
 
 const mapStateToProps = ({ form }) => ({
-  signUpForm: form.SignUp
+  logoutForm: form.LogOut
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  createUser
+  logout
 }, dispatch)
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SignUp)
+)(LogOut)
+
 

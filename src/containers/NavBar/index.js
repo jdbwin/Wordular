@@ -17,12 +17,14 @@ class NavBar extends Component {
     return (
       <NavBarView
         popModal={modalType => this.popModal(modalType)}
+        token={this.props.token}
       />
       )
   }
 }
 
-const mapStateToProps = ({ }) => ({
+const mapStateToProps = ({ auth }) => ({
+  token: auth.token
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
