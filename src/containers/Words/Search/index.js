@@ -69,12 +69,17 @@ class Search extends Component {
         searchTerm={this.props.searchTerm}
         saveWord={this.saveWord}
         clear={this.clear}
+        token={this.props.token}
       />
       )
   }
 }
 
-const mapStateToProps = ({ wordnik }) => ({
+const mapStateToProps = ({
+  auth,
+  wordnik
+}) => ({
+  token: auth.token,
   randomWord: wordnik.randomWord
 })
 

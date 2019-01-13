@@ -5,7 +5,7 @@ import MyWordsList from '../../../components/MyWordsList'
 const MyWords = ({ myWords, visibleItem, showWord, results }) => (
   <div className="container">
     <div className="columns is-centered">
-      {myWords.length &&
+      {myWords && myWords.length &&
           <MyWordsList
             myWords={myWords}
             visibleItem={visibleItem}

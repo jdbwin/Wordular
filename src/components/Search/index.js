@@ -13,7 +13,8 @@ const Search = ({
   results,
   saveWord,
   search,
-  searchTerm
+  searchTerm,
+  token
 }) => (
 
   <div className='is-centered m-t-xl' styleName='main'>
@@ -33,7 +34,9 @@ const Search = ({
     <div className="m-t-md">
       <div styleName="results-container" className="p-md p-t-none">
         <div className="field is-grouped is-grouped-right">
-          <Button text="Save" color="is-info" onClick={saveWord} />
+          {token &&
+            <Button text="Save" color="is-info" onClick={saveWord} />
+          }
           <Button text="Close" color="is-danger" onClick={clear} />
         </div>
         <Results

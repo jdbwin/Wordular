@@ -1,4 +1,5 @@
 import * as myWordsApi from '../utils/api/myWords'
+import * as wordsApi from '../utils/api/words'
 
 const initialState = {
   myWords: [],
@@ -30,7 +31,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isRequesting: false,
-        myWords: action.myWords.words
+        myWords: action.myWords || []
       }
 
     default:
@@ -50,10 +51,10 @@ const SAVE_WORD_COMPLETED = 'myWords/SAVE_WORD_COMPLETED'
 export const saveWord = word => async dispatch => {
   dispatch({ type: SAVE_WORD_REQUESTED})
 
-  await myWordsApi.saveWord(word)
+  await wordsApi.saveWord(word)
 
   dispatch({
-    type: MY_WORDS_COMPLETED
+    type: SAVE_WORD_COMPLETED
   })
 }
 
