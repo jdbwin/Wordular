@@ -3,8 +3,8 @@ import { Route } from 'react-router-dom'
 
 import Home from 'containers/Home'
 import About from 'containers/About'
-import MyWords from 'containers/Authenticated/MyWords'
-import VocabularyBuilder from 'containers//Words/VocabularyBuilder'
+import MyWords from 'containers/Words/MyWords'
+import VocabularyBuilder from 'containers/Words/VocabularyBuilder'
 import NavBar from 'containers/NavBar'
 import Modal from 'containers/Modal'
 

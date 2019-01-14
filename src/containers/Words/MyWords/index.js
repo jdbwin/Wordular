@@ -6,11 +6,13 @@ import { connect } from 'react-redux'
 import MyWordsView from 'views/mywords/MyWords'
 
 import Words from 'containers/Words'
+import Authenticated from 'containers/Authenticated'
 
 import {
   getMyWords
 } from 'modules/myWords'
 
+@Authenticated
 @Words
 class MyWords extends Component {
 

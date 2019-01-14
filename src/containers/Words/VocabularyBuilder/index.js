@@ -5,8 +5,10 @@ import { connect } from 'react-redux'
 
 import VocabularyBuilderView from 'views/vocabularyBuilder/VocabularyBuilder'
 
+import Authenticated from 'containers/Authenticated'
 import Words from 'containers/Words'
 
+@Authenticated
 @Words
 class VocabularyBuilder extends Component {
 
