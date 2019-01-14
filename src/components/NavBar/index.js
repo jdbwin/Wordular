@@ -22,7 +22,6 @@ const NavBar = ({ popModal, token  }) => (
           <NavLink className="navbar-item is-tab" activeClassName="is-active" to="/my-words">My Words</NavLink>
 
           <NavLink className="navbar-item is-tab" activeClassName="is-active" to="/vocabulary-builder">Vocabulary Builder</NavLink>
-          <NavLink className="navbar-item is-tab" activeClassName="is-active" to="/about">Trending</NavLink>
 
           <div className="navbar-item has-dropdown is-hoverable">
             <span className="navbar-link">

@@ -2,7 +2,7 @@ import React from 'react'
 
 import './styles.css'
 
-const Card = ({ title }) => (
+const Card = ({ title, children }) => (
   <div className="card">
     <div className="card-header">
       <p className="card-header-title is-centered">
@@ -11,6 +11,7 @@ const Card = ({ title }) => (
     </div>
     <div className="card-content">
       <div className="content">
+        {children}
       </div>
     </div>
   </div>
