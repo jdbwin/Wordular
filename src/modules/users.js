@@ -1,4 +1,4 @@
-import * as usersApi from '../utils/api/users'
+import * as usersApi from 'utils/api/users'
 
 const initialState = {
   isCreating: false,

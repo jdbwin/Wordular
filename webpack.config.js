@@ -31,7 +31,11 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
+    modules: [
+      resolve('./src'),
+      resolve('./node_modules')
+    ]
   },
   output: {
     path: __dirname + '/dist',

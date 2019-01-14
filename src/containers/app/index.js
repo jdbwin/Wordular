@@ -1,12 +1,12 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import Home from '../Home'
-import About from '../About'
-import MyWords from '../Words/MyWords'
-import VocabularyBuilder from '../Words/VocabularyBuilder'
-import NavBar from '../NavBar'
-import Modal from '../Modal'
+import Home from 'containers/Home'
+import About from 'containers/About'
+import MyWords from 'containers/Authenticated/MyWords'
+import VocabularyBuilder from 'containers//Words/VocabularyBuilder'
+import NavBar from 'containers/NavBar'
+import Modal from 'containers/Modal'
 
 const App = () => (
   <div>

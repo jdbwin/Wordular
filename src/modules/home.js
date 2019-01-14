@@ -1,4 +1,4 @@
-import * as homeApi from '../utils/api/home'
+import * as homeApi from 'utils/api/home'
 
 const initialState = {
   retrievingWords: false,

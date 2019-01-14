@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import SignUpView from '../../../components/forms/SignUp'
+import SignUpView from 'components/forms/SignUp'
 
-import Authentication from '../../Authentication'
+import Authentication from 'containers/Authentication'
 
 import {
   createUser

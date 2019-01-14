@@ -1,8 +1,8 @@
 import React from 'react'
 import { reduxForm, Field } from 'redux-form'
 
-import Button from '../../buttons/Button'
-import Input from '../fields/Input'
+import Button from 'components/buttons/Button'
+import Input from 'components/forms/fields/Input'
 
 const Login = ({ handleSubmit, submitting }) => (
   <form onSubmit={handleSubmit}>

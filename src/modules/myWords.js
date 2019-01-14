@@ -1,5 +1,5 @@
-import * as myWordsApi from '../utils/api/myWords'
-import * as wordsApi from '../utils/api/words'
+import * as myWordsApi from 'utils/api/myWords'
+import * as wordsApi from 'utils/api/words'
 
 const initialState = {
   myWords: [],

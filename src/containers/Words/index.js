@@ -8,7 +8,7 @@ import { debounce as _debounce } from 'lodash'
 import {
   getDefinitions,
   clearResults
-} from '../../modules/wordnik'
+} from 'modules/wordnik'
 
 const Words = WordsComponent => {
   class Base extends Component {

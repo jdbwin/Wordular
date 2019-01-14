@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Search from '../../../containers/Words/Search'
-import Hero from '../Hero'
-import Card from '../../../components/Card'
-import OrderedWordList from '../../../components/OrderedWordList'
+import Search from 'containers/Words/Search'
+import Hero from 'views/home/Hero'
+import Card from 'components/Card'
+import OrderedWordList from 'components/OrderedWordList'
 
 const Home = ({ words, retrievingWords }) => (
   <div className="column is-full">

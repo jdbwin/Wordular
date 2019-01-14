@@ -1,4 +1,4 @@
-import * as wordnik from '../utils/api/wordnik'
+import * as wordnik from 'utils/api/wordnik'
 
 const initialState = {
   results: [],

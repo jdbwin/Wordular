@@ -1,4 +1,4 @@
-import * as authApi from '../utils/api/auth'
+import * as authApi from 'utils/api/auth'
 
 const initialState = {
   isLoggingIn: false,

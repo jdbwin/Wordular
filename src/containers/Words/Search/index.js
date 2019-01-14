@@ -3,17 +3,17 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import SearchView from '../../../components/Search'
+import SearchView from 'components/Search'
 
-import Words from '../../Words'
+import Words from 'containers/Words'
 
 import {
   getRandomWord
-} from '../../../modules/wordnik'
+} from 'modules/wordnik'
 
 import {
   saveWord
-} from '../../../modules/myWords'
+} from 'modules/myWords'
 
 @Words
 class Search extends Component {

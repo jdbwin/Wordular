@@ -5,13 +5,13 @@ import { connect } from 'react-redux'
 
 import {
   toggleModal
-} from '../../modules/visibility'
+} from 'modules/visibility'
 
 import {
   createUser
-} from '../../modules/users'
+} from 'modules/users'
 
-import ModalView from '../../components/modals'
+import ModalView from 'components/modals'
 
 class Modal extends Component {
 

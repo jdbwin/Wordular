@@ -1,6 +1,6 @@
 import React from 'react'
 
-import MyWordsList from '../../../components/MyWordsList'
+import MyWordsList from 'components/MyWordsList'
 
 const MyWords = ({ myWords, visibleItem, showWord, results }) => (
   <div className="container">

@@ -1,11 +1,11 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
 
-import Button from "../../components/buttons/Button"
+import Button from "components/buttons/Button"
 
-import MODAL_TYPES from '../../utils/constants/MODAL'
+import MODAL_TYPES from 'utils/constants/MODAL'
 
-import "./navbar.css"
+import "./styles.css"
 
 const NavBar = ({ popModal, token  }) => (
   <nav className="navbar" role="navigation" aria-label="main navigation">

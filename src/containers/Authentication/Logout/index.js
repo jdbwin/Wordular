@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import LogOutView from '../../../components/forms/Logout'
+import LogOutView from 'components/forms/Logout'
 
-import Authentication from '../../Authentication'
+import Authentication from 'containers/Authentication'
 
 import {
   logout
-} from '../../../modules/auth'
+} from 'modules/auth'
 
 @Authentication
 class LogOut extends Component {

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import VocabularyBuilderView from '../../../views/vocabularyBuilder/VocabularyBuilder'
+import VocabularyBuilderView from 'views/vocabularyBuilder/VocabularyBuilder'
 
-import Words from '../../Words'
+import Words from 'containers/Words'
 
 @Words
 class VocabularyBuilder extends Component {

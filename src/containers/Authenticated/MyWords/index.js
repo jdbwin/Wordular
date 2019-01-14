@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import MyWordsView from '../../../views/mywords/MyWords'
+import MyWordsView from 'views/mywords/MyWords'
 
-import Words from '../../Words'
+import Words from 'containers/Words'
 
 import {
   getMyWords
-} from '../../../modules/myWords'
+} from 'modules/myWords'
 
 @Words
 class MyWords extends Component {

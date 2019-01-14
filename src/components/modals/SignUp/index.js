@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SignUpContainer from '../../../containers/Authentication/SignUp'
+import SignUpContainer from 'containers/Authentication/SignUp'
 
 import './styles.css'
 

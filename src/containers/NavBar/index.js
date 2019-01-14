@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 
 import {
   toggleModal
-} from '../../modules/visibility'
+} from 'modules/visibility'
 
-import NavBarView from '../../components/NavBar'
+import NavBarView from 'components/NavBar'
 
 class NavBar extends Component {
 

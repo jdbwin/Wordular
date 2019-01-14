@@ -1,6 +1,6 @@
 import React from 'react'
 
-import LogoutContainer from '../../../containers/Authentication/Logout'
+import LogoutContainer from 'containers/Authentication/Logout'
 
 const Logout = () => (
   <div className="modal-card">

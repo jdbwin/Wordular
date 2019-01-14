@@ -6,7 +6,7 @@ import Login from './Login'
 import SignUp from './SignUp'
 import Logout from './Logout'
 
-import TYPES from '../../utils/constants/MODAL'
+import TYPES from 'utils/constants/MODAL'
 
 const Modal = ({
   createUser,

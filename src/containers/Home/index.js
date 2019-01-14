@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 
 import {
   retrieveWords
-} from '../../modules/home'
+} from 'modules/home'
 
-import HomeView from '../../views/home/Home'
+import HomeView from 'views/home/Home'
 
 class Home extends Component {
 

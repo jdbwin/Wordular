@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import {
   toggleModal
-} from '../../modules/visibility'
+} from 'modules/visibility'
 
 const Authentication = AuthenticationComponent => {
   class Base extends Component {
