@@ -1,6 +1,4 @@
-import axios from 'axios'
-
-const API = axios.create({ baseURL: process.env.DB_URL })
+import API from './base'
 
 export const getWords = () => API.get('/home').then(res => res.data)
 

@@ -1,13 +1,4 @@
-import axios from 'axios'
+import API from './base'
 
-const API = axios.create({ baseURL: process.env.DB_URL })
-
-export const getMyWords = () => API.get(
-'/user/my-words',
-  {
-    headers: {
-      'Authorization': localStorage.getItem('token')
-    }
-  }
-).then(res => res.data)
+export const getMyWords = () => API.get('/user/my-words').then(res => res.data)
 
