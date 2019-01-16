@@ -1,9 +1,17 @@
 import React from "react"
 
-const OrderedWordList = ({ words }) => (
+import styles from './styles.scss'
+
+const OrderedWordList = ({ words, getFeaturedWordDefinition }) => (
   <ol>
     {words.map((word, i) =>
-    <li key={i}>{word.word}</li>
+    <li
+      styleName="main"
+      key={i}
+      onClick={() => getFeaturedWordDefinition(word.word)}
+    >
+        {word.word}
+    </li>
     )}
   </ol>
 )

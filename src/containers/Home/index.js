@@ -3,16 +3,23 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import Words from 'containers/Words'
+
 import {
   retrieveWords
 } from 'modules/home'
 
 import HomeView from 'views/home/Home'
 
+@Words
 class Home extends Component {
 
   componentWillMount() {
     this.props.retrieveWords()
+  }
+
+  getFeaturedWordDefinition = word => {
+    this.props.search(word)
   }
 
   render() {
@@ -20,6 +27,7 @@ class Home extends Component {
 
     return (
       <HomeView
+        getFeaturedWordDefinition={this.getFeaturedWordDefinition}
         retrievingWords={home.retrievingWords}
         words={home.words}
       />

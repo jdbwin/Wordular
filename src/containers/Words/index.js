@@ -44,7 +44,7 @@ const Words = WordsComponent => {
       this.setState({ searchTerm })
     }
 
-    search = () => this.props.getDefinitions(this.state.searchTerm)
+    search = word => this.props.getDefinitions(word || this.state.searchTerm)
 
     // debounce get to wordnik for definitions
     searchDebounced = _debounce(() => this.search(), 500)
