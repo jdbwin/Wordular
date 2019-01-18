@@ -3,7 +3,7 @@ import React from 'react'
 import Button from 'components/buttons/Button'
 import Results from 'components/Results'
 
-import './styles.css'
+import './styles.scss'
 
 const Search = ({
   clear,

@@ -2,7 +2,7 @@ import React from 'react'
 
 import SignUpContainer from 'containers/Authentication/SignUp'
 
-import './styles.css'
+import './styles.scss'
 
 const SignUp = () => (
   <div className="modal-card">

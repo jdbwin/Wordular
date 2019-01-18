@@ -5,7 +5,7 @@ import Button from "components/buttons/Button"
 
 import MODAL_TYPES from 'utils/constants/MODAL'
 
-import "./styles.css"
+import "./styles.scss"
 
 const NavBar = ({ popModal, token  }) => (
   <nav className="navbar" role="navigation" aria-label="main navigation">

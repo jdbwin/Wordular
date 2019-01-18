@@ -2,7 +2,7 @@ import React from 'react'
 
 import Results from 'components/Results'
 
-import './styles.css'
+import './styles.scss'
 
 const MyWordsList = ({ myWords, results, visibleItem, showWord }) => (
   <div className="column is-half">
