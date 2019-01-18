@@ -6,6 +6,10 @@ import PropTypes from 'prop-types'
 import { debounce as _debounce } from 'lodash'
 
 import {
+  setSearchTerm
+} from 'modules/search'
+
+import {
   getDefinitions,
   clearResults
 } from 'modules/wordnik'
@@ -17,10 +21,6 @@ const Words = WordsComponent => {
       clearResults: PropTypes.func.isRequired,
       getDefinitions: PropTypes.func.isRequired,
       results: PropTypes.array.isRequired
-    }
-
-    state = {
-      searchTerm: ''
     }
 
     formatResults = results => {
@@ -40,17 +40,13 @@ const Words = WordsComponent => {
     }
 
     // search Wordnik API for word definition
-    setSearchTerm = searchTerm => {
-      this.setState({ searchTerm })
-    }
-
-    search = word => this.props.getDefinitions(word || this.state.searchTerm)
+    search = word => this.props.getDefinitions(word || this.props.searchTerm)
 
     // debounce get to wordnik for definitions
     searchDebounced = _debounce(() => this.search(), 500)
 
     keyDownSearch = () => {
-      if (!this.state.searchTerm) {
+      if (!this.props.searchTerm) {
         return
         this.props.clearResults()
       }
@@ -69,8 +65,8 @@ const Words = WordsComponent => {
           {...this.props}
           formatResults={this.formatResults}
           results={this.props.results}
-          searchTerm={this.state.searchTerm}
-          setSearchTerm={this.setSearchTerm}
+          searchTerm={this.props.searchTerm}
+          setSearchTerm={this.props.setSearchTerm}
           keyDownSearch={this.keyDownSearch}
           search={this.search}
         />
@@ -78,13 +74,15 @@ const Words = WordsComponent => {
     }
   }
 
-  const mapStateToProps = ({ wordnik })  => ({
-    results: wordnik.results
+  const mapStateToProps = ({ wordnik, search })  => ({
+    results: wordnik.results,
+    searchTerm: search.searchTerm
   })
 
   const mapDispatchToProps = dispatch => bindActionCreators({
     getDefinitions,
-    clearResults
+    clearResults,
+    setSearchTerm
   }, dispatch)
 
   return connect(mapStateToProps, mapDispatchToProps)(Base)

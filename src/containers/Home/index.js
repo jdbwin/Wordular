@@ -9,6 +9,10 @@ import {
   retrieveWords
 } from 'modules/home'
 
+import {
+  setSearchTerm
+} from 'modules/search'
+
 import HomeView from 'views/home/Home'
 
 @Words
@@ -19,6 +23,7 @@ class Home extends Component {
   }
 
   getFeaturedWordDefinition = word => {
+    this.props.setSearchTerm(word)
     this.props.search(word)
   }
 
@@ -40,7 +45,8 @@ const mapStateToProps = ({ home }) => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  retrieveWords
+  retrieveWords,
+  setSearchTerm
 }, dispatch)
 
 export default connect(
