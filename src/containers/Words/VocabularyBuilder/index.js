@@ -9,47 +9,98 @@ import Authenticated from 'containers/Authenticated'
 import Words from 'containers/Words'
 
 import {
+  randomIndexFromArray
+} from 'utils/helpers'
+
+import {
   getMyWords
 } from 'modules/myWords'
 
 import {
-  setupRound
+  selectWordsForRound
 } from 'modules/vocabularyBuilder'
+
+const initialState = {
+  definitionForRound: '',
+  optionsForRound: null,
+  correctOptionForRound: '',
+  isCorrect: false,
+  isResultShown: false
+}
 
 @Authenticated
 @Words
 class VocabularyBuilder extends Component {
 
-  static propTypes = {
-  }
+  state = { ...initialState }
 
   componentDidMount() {
-    this.setupBuilder()
+    this.setupRound()
   }
 
-  setupBuilder = async () => {
-    await this.props.getMyWords()
+  setupRound = async () => {
+    if (!this.props.word) {
+      await this.props.getMyWords()
+    }
 
-    await this.props.setupRound(this.props.words)
+    this.setState({ ...initialState })
+
+    await this.props.selectWordsForRound(this.props.words)
+
+    await this.props.search(this.props.wordForMatch.word)
+
+    const {
+      definition,
+      wordForMatch,
+      wordsInPlay
+    } = this.props
+
+    this.setState({
+      definitionForRound: definition[randomIndexFromArray(definition)].text,
+      optionsForRound: this.setOptionsForRound(wordsInPlay),
+      correctOptionForRound: this.setCorrectOptionForRound(wordForMatch, wordsInPlay)
+    })
+  }
+
+  setOptionsForRound = wordsInPlay => (
+    wordsInPlay.reduce((acc, curr, index) => {
+      acc[index] = curr
+      return acc
+    }, {})
+  )
+
+  setCorrectOptionForRound = (wordForMatch, wordsInPlay) => (
+    wordsInPlay.findIndex(word => word.word === wordForMatch.word)
+  )
+
+  checkSelection = selection => {
+    this.setState({
+      isCorrect: selection === this.state.correctOptionForRound,
+      isResultShown: true
+    })
   }
 
   render() {
     return (
       <VocabularyBuilderView
+        {...this.state}
+        checkSelection={this.checkSelection}
+        next={this.setupRound}
       />
       )
   }
 }
 
-const mapStateToProps = ({ myWords, vocabularyBuilder }) => ({
+const mapStateToProps = ({ myWords, vocabularyBuilder, wordnik }) => ({
   words: myWords.myWords,
   wordsInPlay: vocabularyBuilder.wordsInPlay,
-  wordForMatch: vocabularyBuilder.wordForMatch
+  wordForMatch: vocabularyBuilder.wordForMatch,
+  definition: wordnik.results
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getMyWords,
-  setupRound
+  selectWordsForRound
 }, dispatch)
 
 export default connect(

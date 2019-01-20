@@ -8,3 +8,7 @@ export const shuffleArray = arr => {
 
   return arr
 }
+
+export const randomIndexFromArray = arr => {
+  return Math.floor(Math.random() * arr.length)
+}

@@ -1,5 +1,5 @@
 import * as vocabularyBuilderApi from 'utils/api/vocabularyBuilder'
-import { shuffleArray } from 'utils/helpers'
+import { shuffleArray, randomIndexFromArray } from 'utils/helpers'
 
 const initialModalState = {
   isSettingCurrentWord: false,
@@ -66,7 +66,7 @@ const SET_WORD_FOR_MATCH = 'vocabularyBuilder/SET_WORD_FOR_MATCH'
 const SETTING_PREVIOUS_WORDS = 'vocabularyBuilder/SETTING_PREVIOUS_WORDS'
 const SET_PREVIOUS_WORDS = 'vocabularyBuilder/SET_PREVIOUS_WORDS'
 
-export const setupRound = words => async dispatch => {
+export const selectWordsForRound = words => async dispatch => {
   dispatch ({ type: SETTING_WORDS_IN_PLAY })
 
   const wordsInPlay = shuffleArray(words).slice(0, 3)
@@ -78,7 +78,7 @@ export const setupRound = words => async dispatch => {
 
   dispatch({ type: SETTING_WORD_FOR_MATCH })
 
-  const wordForMatch = wordsInPlay[Math.floor(Math.random() * wordsInPlay.length)]
+  const wordForMatch = wordsInPlay[randomIndexFromArray(wordsInPlay)]
 
   dispatch({
     type: SET_WORD_FOR_MATCH,
