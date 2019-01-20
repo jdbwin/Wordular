@@ -23,7 +23,8 @@ webpackConfig.entry = ENTRY
 webpackConfig.mode = MODE
 
 webpackConfig.devServer = {
-  contentBase: './dist'
+  contentBase: './dist',
+  historyApiFallback: true
 }
 
 webpackConfig.output = {

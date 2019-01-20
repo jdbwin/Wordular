@@ -7,6 +7,7 @@ import myWords from './myWords'
 import search from './search'
 import users from './users'
 import visibility from './visibility'
+import vocabularyBuilder from './vocabularyBuilder'
 import wordnik from './wordnik'
 
 export default combineReducers({
@@ -17,6 +18,7 @@ export default combineReducers({
   search,
   users,
   visibility,
+  vocabularyBuilder,
   wordnik
 })
 
