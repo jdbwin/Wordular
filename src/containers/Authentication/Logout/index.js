@@ -14,9 +14,6 @@ import {
 @Authentication
 class LogOut extends Component {
 
-  static propTypes = {
-  }
-
   logout = async values => {
     const {
       email,
@@ -35,7 +32,7 @@ class LogOut extends Component {
         accept={this.logout}
         close={this.props.closeModal}
       />
-      )
+    )
   }
 }
 

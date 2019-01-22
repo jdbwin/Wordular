@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
         results: action.results.data
       }
 
-     case RANDOM_WORD_COMPLETED:
+    case RANDOM_WORD_COMPLETED:
       return {
         ...state,
         isSearching: false,
@@ -91,3 +91,4 @@ export const clearResults = () => {
     })
   }
 }
+

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import VocabularyBuilderView from 'views/vocabularyBuilder/VocabularyBuilder'
+import VocabularyBuilderView from 'views/VocabularyBuilder'
 
 import Authenticated from 'containers/Authenticated'
 import Words from 'containers/Words'
@@ -87,7 +87,7 @@ class VocabularyBuilder extends Component {
         checkSelection={this.checkSelection}
         next={this.setupRound}
       />
-      )
+    )
   }
 }
 

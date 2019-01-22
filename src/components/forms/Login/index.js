@@ -4,7 +4,10 @@ import { reduxForm, Field } from 'redux-form'
 import Button from 'components/buttons/Button'
 import Input from 'components/forms/fields/Input'
 
-const Login = ({ handleSubmit, submitting }) => (
+const Login = ({
+  handleSubmit,
+  submitting
+}) => (
   <form onSubmit={handleSubmit}>
     <Field
       name="email"

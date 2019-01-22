@@ -14,9 +14,6 @@ import {
 @Authentication
 class SignUp extends Component {
 
-  static propTypes = {
-  }
-
   createUser = async values => {
     const {
       email,
@@ -34,7 +31,7 @@ class SignUp extends Component {
       <SignUpView
         onSubmit={values => this.createUser(values)}
       />
-      )
+    )
   }
 }
 

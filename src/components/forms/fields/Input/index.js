@@ -2,12 +2,12 @@ import React from 'react'
 
 const Input = ({
   input,
-  placeholder,
   label,
+  placeholder,
   type,
   meta: {
-    touched,
     error,
+    touched,
     warning
   }
 }) => (

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Search from 'containers/Words/Search'
-import Hero from 'views/home/Hero'
+import Hero from 'components/Hero'
 import Card from 'components/Card'
 import OrderedWordList from 'components/OrderedWordList'
 
@@ -11,7 +11,7 @@ const Home = ({
   words
 }) => (
   <div className="column is-full">
-    <Hero />
+    <Hero title='Wordular' subtitle='Find and remember your favourite words...' />
     <Search />
     <div className="container m-t-xl">
       {Object.keys(words).length > 0 &&

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import MyWordsView from 'views/mywords/MyWords'
+import MyWordsView from 'views/MyWords'
 
 import Words from 'containers/Words'
 import Authenticated from 'containers/Authenticated'
@@ -52,7 +52,7 @@ class MyWords extends Component {
         results={this.props.formatResults(this.props.results)}
         showWord={this.showWord}
       />
-      )
+    )
   }
 }
 

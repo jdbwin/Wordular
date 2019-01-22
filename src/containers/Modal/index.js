@@ -28,7 +28,7 @@ class Modal extends Component {
         createUser={this.props.createUser}
         toggleModal={() => this.props.toggleModal()}
       />
-      )
+    )
   }
 }
 

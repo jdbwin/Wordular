@@ -71,7 +71,7 @@ class Search extends Component {
         clear={this.clear}
         token={this.props.token}
       />
-      )
+    )
   }
 }
 

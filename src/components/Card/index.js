@@ -2,7 +2,10 @@ import React from 'react'
 
 import './styles.scss'
 
-const Card = ({ title, children }) => (
+const Card = ({
+  title,
+  children
+}) => (
   <div className="card">
     <div className="card-header">
       <p className="card-header-title is-centered">
@@ -15,7 +18,6 @@ const Card = ({ title, children }) => (
       </div>
     </div>
   </div>
-
 )
 
 export default Card

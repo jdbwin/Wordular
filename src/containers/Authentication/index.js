@@ -10,9 +10,6 @@ import {
 const Authentication = AuthenticationComponent => {
   class Base extends Component {
 
-    static propTypes = {
-    }
-
     closeModal = () => {
       if (this.props.isModalVisible) {
         this.props.toggleModal()
@@ -25,7 +22,7 @@ const Authentication = AuthenticationComponent => {
           closeModal={this.closeModal}
           {...this.props}
         />
-        )
+      )
     }
   }
 

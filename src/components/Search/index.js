@@ -16,7 +16,6 @@ const Search = ({
   searchTerm,
   token
 }) => (
-
   <div className='is-centered m-t-xl' styleName='main'>
 
     <div className="control">
@@ -35,9 +34,17 @@ const Search = ({
       <div styleName="results-container" className="p-md p-t-none">
         <div className="field is-grouped is-grouped-right">
           {token &&
-            <Button text="Save" color="is-info" onClick={saveWord} />
+          <Button
+            text="Save"
+            color="is-info"
+            onClick={saveWord}
+          />
           }
-          <Button text="Close" color="is-danger" onClick={clear} />
+          <Button
+            text="Close"
+            color="is-danger"
+            onClick={clear}
+          />
         </div>
         <Results
           results={results}
@@ -48,8 +55,16 @@ const Search = ({
     }
 
     <div className="field is-grouped is-grouped-centered m-t-md">
-      <Button text="Search" onClick={search} color="is-light" />
-      <Button text="Random" onClick={getRandomWord} color="is-light" />
+      <Button
+        text="Search"
+        onClick={search}
+        color="is-light"
+      />
+      <Button
+        text="Random"
+        onClick={getRandomWord}
+        color="is-light"
+      />
     </div>
 
   </div>

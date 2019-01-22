@@ -70,7 +70,7 @@ const Words = WordsComponent => {
           keyDownSearch={this.keyDownSearch}
           search={this.search}
         />
-        )
+      )
     }
   }
 

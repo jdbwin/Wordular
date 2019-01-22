@@ -6,9 +6,6 @@ import PropTypes from 'prop-types'
 const Authenticated = AuthenticatedComponent => {
   class Base extends Component {
 
-    static propTypes = {
-    }
-
     componentWillMount() {
       if (!this.props.token) {
         this.props.history.push('/')
@@ -20,7 +17,7 @@ const Authenticated = AuthenticatedComponent => {
         <AuthenticatedComponent
           {...this.props}
         />
-        )
+      )
     }
   }
 
@@ -35,6 +32,4 @@ const Authenticated = AuthenticatedComponent => {
 }
 
 export default Authenticated
-
-
 

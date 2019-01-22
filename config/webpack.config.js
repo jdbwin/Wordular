@@ -41,7 +41,11 @@ const BABEL_CONFIG = {
         node: 'current'
       }
     }],
-    '@babel/preset-react'
+    ['@babel/preset-react', {
+      options: {
+        webpackHotModuleReloading: true
+      }
+    }],
   ],
   plugins: [
     // necessary for decorator use

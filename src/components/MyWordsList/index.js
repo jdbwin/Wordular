@@ -4,10 +4,15 @@ import Results from 'components/Results'
 
 import './styles.scss'
 
-const MyWordsList = ({ myWords, results, visibleItem, showWord }) => (
+const MyWordsList = ({
+  myWords,
+  results,
+  showWord,
+  visibleItem
+}) => (
   <div className="column is-half">
-    {myWords && myWords.map((word, index) => {
-    return (
+    {myWords.map((word, index) => (
+
     <div className="card" key={index}>
       <header className="card-header">
         <p className="card-header-title">
@@ -39,8 +44,8 @@ const MyWordsList = ({ myWords, results, visibleItem, showWord }) => (
         </footer>
       </div>
     </div>
-    )
-    })}
+
+    ))}
   </div>
 )
 

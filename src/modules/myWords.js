@@ -68,3 +68,4 @@ export const getMyWords = () => async dispatch => {
     myWords
   })
 }
+

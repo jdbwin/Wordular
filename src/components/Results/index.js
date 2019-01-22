@@ -2,10 +2,11 @@ import React from 'react'
 
 import './styles.scss'
 
-const Results = ({ word, results }) => (
-
+const Results = ({
+  results,
+  word
+}) => (
   <div className="content is-small">
-
     {results && Object.keys(results).map((result, index) => (
 
     <div key={index}>
@@ -14,13 +15,12 @@ const Results = ({ word, results }) => (
 
       <ol type="I">
         {results[result].map((result, index) => (
-        <li styleName="definition" key={index}>{result.text}</li>
+          <li styleName="definition" key={index}>{result.text}</li>
         ))}
       </ol>
-
     </div>
-    ))}
 
+    ))}
   </div>
 )
 

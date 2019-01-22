@@ -42,4 +42,3 @@ export const retrieveWords = () => async dispatch => {
   })
 }
 
-

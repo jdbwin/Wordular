@@ -13,7 +13,7 @@ import {
   setSearchTerm
 } from 'modules/search'
 
-import HomeView from 'views/home/Home'
+import HomeView from 'views/Home'
 
 @Words
 class Home extends Component {
